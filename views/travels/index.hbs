@@ -1,0 +1,32 @@
+<div class="header">
+  <h3>Travels Logs</h3> <a href="/auth/logout" class="waves-effect waves-light btn-large"><i
+      class="material-icons right"></i>SignOut</a>
+</div>
+<div class="wrapper">
+  {{#each travels}}
+  <div class="col s12 m4">
+    <div class="card pageDisplay">
+      <div class="card-image">
+        {{{editIcon user ../user _id}}}
+        {{#with images.[0]}}
+        <img src="{{this}}" height="350px">
+        {{/with}}
+        <span class="card-title"> {{travels.notes}} </span>
+      </div>
+      <div class="card-content center-align">
+        <h5>{{truncate title 20}}</h5>
+        <p>{{stripTags (truncate description 50)}}</p>
+        <br>
+        <div class="chip">
+          <a href="/travels/user/{{user._id}}">{{user.displayName}}</a>
+        </div>
+      </div>
+      <div class="card-action center-align">
+        <a href="/travels/{{_id}}" class="btn grey">Read More</a>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  <p>No Travel logs to display</p>
+  {{/each}}
+</div>

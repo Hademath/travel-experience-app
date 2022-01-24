@@ -1,0 +1,46 @@
+<h6>dashboard</h6>
+
+<h3> Welcome {{name}}</h3>
+
+<p> Here are your travel logs</p>
+
+{{#if travels}}
+
+<table class="striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each travels}}
+        <tr>
+            <td><a href="/travels/{{_id}}">{{title}}</a></td>
+            <td>{{formatDate visitDate 'MMMM Do YYYY, h:mm:ss a'}}</td>
+            <td><span class="dash-status">{{status}}</span></td>
+            <td>
+                <div>
+                <a href="/travels/edit/{{_id}}" class="btn btn-float">
+                    <i class="fas fa-edit"></i>
+                </a>
+                </div>
+                <div>
+                <form action="/travels/{{_id}}" method="POST" id="delete-form">
+                    <div> <input type="hidden" name="_method" value="DELETE"> </div>
+                  <div> <button type="submit" class="btn red"> 
+                        <i class="fas fa-trash"></i>
+                    </button> </div> 
+                </form>
+                </div>
+
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<p>You have not created any Travel logs</p>
+{{/if}}

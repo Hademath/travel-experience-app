@@ -1,0 +1,29 @@
+<div class="header">
+  <h3>List of Public Travel Logs</h3>
+</div>
+<div class="wrapper">
+  {{#each travels}}
+  <div class="col s12 m4">
+    <div class="card pageDisplay">
+      <div class="card-image">
+       {{#with images.[0]}}
+        <img src="{{this}}" height="350px">
+        {{/with}}
+      </div>
+      <div class="card-content center-align">
+        <h5>{{title}}</h5>
+        <p>{{stripTags (truncate description 50)}}</p>
+        <br>
+        <div class="chip">
+          <a href="/user/{{user._id}}">{{user.displayName}}</a>
+        </div>
+      </div>
+      <div class="card-action center-align">
+        <a href="/{{_id}}" class="btn grey">Read More</a>
+      </div>
+    </div>
+  </div>
+  {{else}}
+  <p>No Travel logs to display</p>
+  {{/each}}
+</div>

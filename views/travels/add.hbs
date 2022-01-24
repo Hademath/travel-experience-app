@@ -1,0 +1,68 @@
+<h3>Add Your Travel Stories</h3>
+<div class="row">
+    <form action="/travels" method="POST" class="col s12" enctype="multipart/form-data">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title" required>
+                <label for="title">Title</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="location" name="location" required>
+                <label for="title">location</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Give us a brief description of where you travelled to:</h5>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field"></div>
+            <h5>You can uploads shots from your travels here:</h5>
+            <input type="file" id="images" name="images" multiple required>
+        </div>
+</div>
+
+<div class="row">
+    <div class="input-field">
+        <h5>Give us a brief description of your Experience in the course of your journey:</h5>
+        <textarea id="notes" name="notes" required></textarea>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field">
+        <h5>Pls select the visibility for your story</h5>
+        <p>
+            <label>
+                <input name="status" id="public" value="public" type="radio" />
+                <span>Public</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input name="status" id="private" value="private" type="radio" />
+                <span>private</span>
+            </label>
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="input-field">
+        <h5>Date Visited</h5>
+        <input type="date" name="visitDate" id="visitDate" required></input>
+    </div>
+</div>
+
+<div class="row">
+    <input type="submit" value="Save" class="btn">
+    <a href="/dashboard" class="btn orange">Cancel</a>
+</div>
+</form>
+</div>

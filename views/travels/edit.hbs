@@ -1,0 +1,68 @@
+<h3>Edit Your Travel Stories</h3>
+<div class="row">
+    <form action="/travels/{{travel._id}}"  method="post" class="col s12">
+     <input type="hidden" name="_method" value="put">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title"  value="{{travel.title}}">
+                <label for="title">Title</label>
+            </div>
+        </div>
+          <div class="row">
+            <div class="input-field">
+                <input type="text" id="location" name="location" value="{{travel.location}}" >
+                <label for="title">location</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Give us a brief description of where you travelled to:</h5>
+                <textarea id="description" name="description" value="{{travel.description}}"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field"></div>
+            <h5>You can uploads shots from your travels here:</h5>
+            <input type="file" id="images" name="images" multiple required>
+        </div>
+
+           <div class="row">
+            <div class="input-field">
+                <h5>Give us a brief description of your Experience in the course of your journey:</h5>
+                <input id="notes" name="notes" value="{{travel.notes}}">
+            </div>
+        </div>
+        <div class="row">
+    <div class="input-field">
+            <h5>Pls select the visibility for your story</h5>
+              {{!-- {{#select travel.status}} --}}
+        <p>
+            <label>
+                <input name="status" id="public" value="public" type="radio" />
+                <span>Public</span>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input name="status" id="private" value="private" type="radio" />
+                <span>private</span>
+            </label>
+        </p>
+    </div>
+</div>
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Date Visited</h5>
+                <input type="date" name="visitDate" id="visitDate" value="{{travel.visitDate}}"></input>
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>
