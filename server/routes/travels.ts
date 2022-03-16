@@ -76,9 +76,9 @@ router.post("/", ensureAuth, async (req: any, res) => {
   } catch (err) {
     console.error(err);
     res.render("error/500");
-  }
+  } 
 });
-
+//add something to each now
 // @desc    Show all travels
 // @route   GET /stories
 
