@@ -1,7 +1,7 @@
 import express, { NextFunction, Request, Response } from "express";
 const router = express.Router();
 import { hash, compare } from "bcryptjs";
-const User = require("../models/User");
+const TravellerUser = require("../models/User");
 import { createAccessToken, createRefreshToken } from "../config/token";
 
 const registerUser = async function (
@@ -31,11 +31,11 @@ const registerUser = async function (
 
     const hashedPassword = await hash(password, 10);
 
-    let user = await User.findOne({ googleId: email });
+    let user = await TravellerUser.findOne({ googleId: email });
     if (user) {
       return res.status(404).json({ message: "user already exist" });
     }
-    user = await User.create({
+    user = await TravellerUser.create({
       googleId: email,
       displayName: firstName + " " + lastName,
       firstName: firstName,
@@ -61,13 +61,13 @@ const loginUser = async function (req: Request, res: Response, next: NextFunctio
       });
     }
 
-    let user = await User.findOne({ googleId: email });
+    let user = await TravellerUser.findOne({ googleId: email });
     if (!user) {
       return res.status(404).json({ message: "invalid input" });
     }
 
     /* do your hashing here */
-    const valid = await compare(password, user.hashedPassword);
+    const valid = await compare(password, TravellerUser.hashedPassword);
     if (!valid) {
       return res.render("signin", {
         error: "Username or Password incorrect",

@@ -28,12 +28,12 @@ const TravelSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['public', 'private'], // Private
-    default: 'private',
+    enum: ["public", "private"], // Private
+    default: "private",
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: "TravellerUser",
   },
   createdAt: {
     type: Date,

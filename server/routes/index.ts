@@ -18,7 +18,7 @@ router.get("/travels", ensureAuth, async (req: any, res) => {
       .lean();
 
     travels.forEach((travel: { user: { _id: any } }) => travel.user._id);
-    res.render("travels/index", {
+    res.render("travels", {
       user: req.user,
       travels,
     });
